@@ -12,6 +12,7 @@ var gulp = require('gulp'),
 gulp.task('js', function(){
 	browserify('./main.js')
 	.bundle()
+    
 	.pipe(source('browserit.js'))
 	.pipe(gulp.dest('./'))
 });
