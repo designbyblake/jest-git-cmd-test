@@ -1,0 +1,84 @@
+$layout: "/assets/images/layout/";
+$home: "/assets/images/home/";
+$sub: "/assets/images/sub/";
+$fonts: "/assets/fonts/";
+$vectors: "/assets/images/vectors/";
+
+
+//colors
+$orange: #ff4c00;
+$orange_hover: #ff9b71;
+$promo_orange: #f8b3a4;
+
+$purple: #b33875;
+$purple_hover: #692044;
+
+$blue: #002f86;
+$blue_hover: #415b8b;
+
+$brown: #623b1f;
+$pink: #a2007c;
+$yellow: #f7a700;
+
+// Blog Colors
+
+$base: 					#767676;
+$base-darker: 			darken( $base, 28.5% ); //2d2d2d
+$base-dark: 			darken( $base, 20% ); //434343
+
+$base-light: 			lighten( $base, 4%); //defaults to "gray"
+$base-lighter: 			lighten( $base, 42%); //e1e1e1
+
+$secondary: 			#ee512e;
+$secondary-light: 		#f05023;
+$secondary-access: 		#f26841;
+
+$blog-border:			#e9e9e9;
+$blog-border-alt:		#e1e1e1;
+$mobile-nav:			#242424;
+$home-border:			#BCBBBA;
+$blog-filter-roll:		#ebebeb;
+$blog-active:			#f64c02;
+$dk-gray-active:		#242424;
+$author-cat-bg:			#f4f4f4;
+
+$lmo-where-gray:		#f0f0f0;
+$lmo-where-gray-alt:	#f1f1f1;
+$lmo-where-title:		#47474a;
+$lmo-where-border:		#c0bfbe;
+$lmo-where-event:		#737373;
+$lmo-recent-gray:		#414145;
+$lmo-header-gray:		#fafafa;
+$off-white:				#c7c7c7;
+$tab-gray:				#7b7b7b;
+
+
+//icon extension
+$icon-ext: rb4by7;
+
+$h_contain: 1200px;
+$tablet_contain: 742px;
+$tablet_plus_contain: 960px;
+$sm_desktop: 1075px;
+$pass: '';
+$gutter-width: 20px;
+
+
+
+// grid
+%three-quarter {
+	float: left; width: 66.666%; position: relative;
+}
+
+%half {
+	float: left; width: 50%; position: relative;
+}
+
+%third {
+	float: left; width: 33.333%; position: relative;
+}
+
+%quarter {
+	float: left; width: 25%; position: relative;
+}
+

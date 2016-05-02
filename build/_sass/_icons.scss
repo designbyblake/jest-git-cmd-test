@@ -1,0 +1,112 @@
+@font-face {
+    font-family: 'icomoon';
+    src:url('/assets/fonts/icomoon/icomoon.eot?#{$icon-ext}');
+    src:url('/assets/fonts/icomoon/icomoon.eot?#iefix#{$icon-ext}') format('embedded-opentype'),
+        url('/assets/fonts/icomoon/icomoon.woff?#{$icon-ext}') format('woff'),
+        url('/assets/fonts/icomoon/icomoon.ttf?#{$icon-ext}') format('truetype'),
+        url('/assets/fonts/icomoon/icomoon.svg?#{$icon-ext}#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    font-family: 'icomoon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.page-footer{
+    .icon-lmo-logo:before {
+        content: "\6c";
+    }
+}
+
+.icon-google-plus:before {
+    content: "\e90a";
+}
+ 
+.icon-comments:before {
+    content: "\e908";
+}
+.icon-angle-left:before {
+    content: "\e909";
+}
+.icon-contact:before {
+    content: "\e905";
+}
+.icon-print:before {
+    content: "\e906";
+}
+.icon-share:before {
+    content: "\e907";
+}
+.icon-browser:before {
+    content: "\e900";
+}
+.icon-hand:before {
+    content: "\e901";
+}
+.icon-refresh:before {
+    content: "\e902";
+}
+.icon-facebook:before {
+    content: "\61";
+}
+.icon-twitter:before {
+    content: "\62";
+}
+.icon-linkedin:before {
+    content: "\63";
+}
+.icon-flickr:before {
+    content: "\64";
+}
+.icon-pinterest:before {
+    content: "\65";
+}
+.icon-menu:before {
+    content: "\66";
+}
+.icon-angle-right:before {
+    content: "\67";
+}
+.icon-plus:before {
+    content: "\68";
+}
+.icon-play:before {
+    content: "\69";
+}
+.icon-grid:before {
+    content: "\6a";
+}
+.icon-close:before {
+    content: "\6b";
+}
+.icon-error:before {
+    content: "\6b";
+}
+.icon-lmo-logo:before {
+    content: "\6c";
+}
+.icon-check:before {
+    content: "\e903";
+}
+.icon-warning:before {
+    content: "\e904";
+}
+
+.icon-envelope-alt:before {
+    content: "\f003";
+}
+
+.icon-envelope-menu:before {
+    content: "\f0e0";
+}
+

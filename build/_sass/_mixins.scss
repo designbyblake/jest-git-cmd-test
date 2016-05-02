@@ -1,0 +1,14 @@
+@mixin rotate ($deg) {
+	-moz-transform: rotate(#{$deg}deg);
+	-o-transform: rotate(#{$deg}deg);
+	-ms-transform: rotate(#{$deg}deg);
+	-webkit-transform: rotate(#{$deg}deg);
+}
+
+@mixin transition ($value...) {
+  -moz-transition: $value;
+  -o-transition: $value;
+  -ms-transition: $value;
+  -webkit-transition: $value;
+  transition: $value;
+}

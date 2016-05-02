@@ -1,0 +1,39 @@
+@import url("//fast.fonts.net/t/1.css?apiType=css&projectid=10491cf1-4971-45a8-8a0f-5f2d34bb5ffc");
+//Gotham Fonts
+
+//@import url('//cloud.typography.com/7229072/682144/css/fonts.css');
+@font-face{
+    font-family:"ITCFranklinGothicW01-Bk 812650";
+    src:url("/assets/fonts/franklingothic/40c25844-afae-464c-b2e8-e22dfe775019.eot?#iefix");
+    src:url("/assets/fonts/franklingothic/40c25844-afae-464c-b2e8-e22dfe775019.eot?#iefix") format("eot"),
+    url("/assets/fonts/franklingothic/3e93a250-0c01-4de3-a34f-07ad006f324c.woff") format("woff"),
+    url("/assets/fonts/franklingothic/b8e027ee-2673-4c27-94d0-54595a427ab2.ttf") format("truetype"),
+    url("/assets/fonts/franklingothic/d2919fbf-50f9-4403-b41a-12044cdefede.svg#d2919fbf-50f9-4403-b41a-12044cdefede") format("svg");
+}
+@font-face{
+    font-family:"ITCFranklinGothicW01-Dm 812677";
+    src:url("/assets/fonts/franklingothic/05bfbc51-0c0b-440a-8a25-45b86f0289d5.eot?#iefix");
+    src:url("/assets/fonts/franklingothic/05bfbc51-0c0b-440a-8a25-45b86f0289d5.eot?#iefix") format("eot"),
+    url("/assets/fonts/franklingothic/b547d31d-69fc-40d6-8013-e9b6f0b38df0.woff") format("woff"),
+    url("/assets/fonts/franklingothic/8e90e5d2-659a-4b9f-b68a-8ae72539e7b4.ttf") format("truetype"),
+    url("/assets/fonts/franklingothic/125eafff-7b5a-4c56-8a3a-d3fe11d8c3cc.svg#125eafff-7b5a-4c56-8a3a-d3fe11d8c3cc") format("svg");
+}
+
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    @font-face {
+        font-family: 'ITCFranklinGothicW01-Bk 812650';
+        src: url('/assets/fonts/d2919fbf-50f9-4403-b41a-12044cdefede.svg#d2919fbf-50f9-4403-b41a-12044cdefede') format('svg');
+    }
+    @font-face {
+        font-family: 'ITCFranklinGothicW01-Dm 812677';
+        src: url('/assets/fonts/125eafff-7b5a-4c56-8a3a-d3fe11d8c3cc.svg#125eafff-7b5a-4c56-8a3a-d3fe11d8c3cc') format('svg');
+    }
+}
+
+%gotham{font-family: 'Gotham SSm A', 'Gotham SSm B', Helvetica, Arial, sans-serf;}
+%comp{font-family:'ITCFranklinGothicW01-Bk 812650', Helvetica, sans-serif;}
+%dcomp{font-family:'ITCFranklinGothicW01-Dm 812677',Helvetica, sans-serif;}
+%med{font-family: 'Gotham SSm A', 'Gotham SSm B',Helvetica, sans-serif; font-weight: 500; font-style: normal;}
+%book{font-family: 'Gotham SSm A', 'Gotham SSm B',Helvetica, sans-serif; font-weight: 400; font-style: normal;}
+%light{font-family: 'Gotham SSm A', 'Gotham SSm B',Helvetica, sans-serif; font-weight: 300; font-style: normal;}

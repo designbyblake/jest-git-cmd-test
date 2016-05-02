@@ -1,0 +1,589 @@
+.landing-page {
+	overflow-x: hidden;
+	&__main {
+		margin-top: 0px;
+
+		/* @include mq($min, $tablet) {
+			margin-top: 0;
+		} */
+
+	}
+
+	&__header {
+		padding: 90px 0 20px;
+		background: $lmo-header-gray;
+		margin-bottom: 30px;
+
+		@include mq($min, $tablet) {
+			padding: 127px 0 30px;
+			margin-bottom: 50px;
+    		
+    	}
+
+    	.border {
+		    //margin-top: 45px;
+			margin-bottom: 0;
+			background: url(/assets/images/layout/h1_border.png) repeat-x 50% 50%;
+		    /* @include mq($min, $tablet) {
+				
+		    } */
+    	}
+
+    	&__title {
+    		@extend .container;
+			@extend %gotham;
+			font-weight: 700;
+			font-size: 3em;
+    		line-height: 1em;
+    		margin: auto;
+    		text-transform: uppercase;
+    		color: $orange;
+    		//padding: 0 25px;
+
+    		@include mq($min, $desktop) {
+				max-width: 960px;
+    		}
+
+    		@include mq($min, $tablet) {
+    			max-width: 800px;
+				font-size: 5.3em;
+    		}
+
+    		.bg {
+    			display: inline-block;
+    			background: $lmo-header-gray;
+    			margin: 0px;
+		    	padding: 0 30px 0 10px;
+
+			    @include mq($min, $tablet) {
+			    	margin: 0 15px;
+			    	padding: 0 60px;
+			    	
+			    }
+    		}
+    	}
+	}
+
+	&__content {
+		@extend .container;
+		padding: 0 20px 75px;
+
+		@include mq($min, $tablet) {
+			padding: 0 75px 75px;
+		}
+
+		/* h2 {
+			@extend %light;
+			color: $lmo-where-title;
+			font-size: 4.1em;
+			line-height: 1.220em;
+			margin-top: 10px;
+			margin-bottom: 30px;
+		}
+
+		p {
+			color: $lmo-where-event;
+			font-size: 1.7em;
+			@extend %light;
+			line-height: 1.588em;
+			margin-bottom: 30px;
+		} */
+	}
+
+	// Slide out Sticky Menu
+
+	.sticky-menu {
+		position: fixed;
+		top: 0;
+		right: -100%;
+		width: 100%;
+		height: 100%;
+		background: white;
+		z-index: 2;
+		transition: right .35s, width .25s;
+
+		&.on {
+			z-index: 1002;
+		}
+
+		&.inactive {
+			.sticky-menu__slide-tab {
+				left: 10px;
+			}
+		}
+
+		@include mq($min, $big-desktop) {
+			right: -42.5%;
+			width: 42.5%;
+		}
+
+		@include mq($min, $tablet) {
+			right: -50%;
+			width: 50%;
+		}
+
+		&.open {
+			right: 0;
+
+			.sticky-menu__slide-tab {
+				left: -61px;
+			}
+		}
+		
+		&__scroll {
+			position: relative;
+			overflow-y: scroll;
+			height: 100%;
+		}
+		// Why does the overflow style need to be set twice?
+		&__wrap {
+			position: relative;
+			padding: 70px 8%;
+			overflow-y: scroll;
+			height: 100%;
+			width: 100%;		
+
+			@include mq($min, $desktop) {
+				padding: 70px 8%;
+			}
+
+			@include mq($min, $tablet) {
+				padding: 70px 5%;
+			}
+
+			&.confirmation:before {
+				display: inline-block;
+				vertical-align: middle;
+				height: 100%;
+				content: '';
+			}
+		}
+
+		&__header {
+			@extend .clearfix;
+			margin-top: 100px;
+			margin-bottom: 45px;
+
+			&__promo {
+				float: left;
+				width: 100%;
+				
+				@include mq($min, $desktop) {
+					width: calc(100% - 190px);
+				}
+			}
+
+			&__profile {
+				width: 190px;
+				height: 160px;
+				float: right;
+				text-align: right;
+				display: none;
+
+				@include mq($min, $desktop) {
+					display: block;
+				}
+			}
+
+			&__title {
+				color: $orange;
+				@extend %gotham;
+				font-size: 3.3em;
+				font-weight: 700;
+				line-height: 1.242em;
+				text-transform: uppercase;
+			}
+
+			&__desc {
+				color: $lmo-where-event;
+				@extend %light;
+				font-size: 1.6em;
+				line-height: 1.625em;
+			}
+		}
+
+		.form__wrap--submit {
+			text-align: center;
+		}
+
+		.form__wrap__split {
+			width: 100%;
+			float: none;
+
+			@include mq($min, $tablet) {
+				@include span(6);
+
+				&:last-of-type {
+					@include span(6 last);				
+				}	
+			}
+		}
+
+		&__slide-tab {
+			background: rgba($base-dark, .7);
+			color: white;
+			width: 61px;
+			height: 67px;
+			position: absolute;
+			top: calc(50% - 33.5px);
+			left: -61px;
+			font-size: 2.8em;
+			transition: left .5s, opacity .25s, background .25s;
+
+			@include mq($max, $tablet) {
+				left: 10px;
+				z-index: -1;
+				opacity: 0;
+			}
+
+			span:before {
+				transition: transform .25s;
+				display: inline-block;
+			}
+
+			&:hover {
+				background: rgba($tab-gray, 1);
+
+				span:before {
+					transform: scale(1.1);
+				}
+			}
+
+			&:focus {
+				background: rgba($tab-gray, 1);
+
+				span:before {
+					transform: scale(1);
+				}
+			}
+		}
+
+		&__close {
+			color: #3c3b3b;
+			@extend %med;
+			font-size: 1.4em;
+			line-height: 1.857em;
+			position: absolute;
+			right: 0;
+			top: 10px;
+			text-transform: uppercase;
+			transition: right .5s, opacity .5s;
+			z-index: 2;
+
+			span {
+				font-size: 4em;
+				font-weight: 300;
+				vertical-align: middle;
+				position: relative;
+				right: 0px;
+				transition: right .5s, opacity .5s;
+			}
+
+			&:hover {
+				transition: right .25s, opacity .25s;
+				right: -10px;
+				opacity: .6;
+
+				span {
+					transition: right .25s, opacity .25s;
+					right: 10px;
+				}
+			}
+		}
+
+		&__thank-you {
+			display: inline-block;
+			width: 100%;
+			vertical-align: middle;
+		}
+	}
+
+	.sticky-modal {
+		opacity: 0;
+		background: black;
+		position: fixed;
+		z-index: -1;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		transition: opacity .25s;
+
+		&.on {
+			z-index: 1001;
+		}
+		&.active {
+			opacity: .7;
+		}
+	}
+
+	.blog-recent, .lmo-work-detail__related {
+		padding: 0 20px;
+		@include mq($min, $tablet) {
+			padding: 0 75px;
+		}
+	}
+}
+
+.association {
+	&__wrap {
+		margin-top: 35px;
+	}
+
+	&__clients {
+		background: $lmo-where-gray-alt;
+		text-align: center;
+		padding: 65px 0 10px;
+
+		@include mq($min, $tablet) {
+			padding: 120px 0;
+		}
+
+		&__list {
+			margin-top: 10px;
+			@extend .container;
+		}
+
+		&__item {
+			display: block;
+			vertical-align: middle;
+			width: 100%;
+			text-align: center;
+			margin-bottom: 55px;
+
+			@include mq($min, $tablet) {
+				display: inline-block;
+				width: 19.5%;
+				margin-bottom: 0;
+			}
+
+			a {
+				position: relative;
+				display: inline-block;
+
+				&:hover {
+					.grey {
+						transition: opacity .25s;
+						opacity: 1;
+					}
+
+					.color {
+						transition: opacity .25s .12s;
+						opacity: 0;
+					}
+				}
+
+				img {
+					
+					@include mq($min, $palm) {
+						width: 100%;
+					}
+
+					@include mq($min, $tablet) {
+						width: 75%;
+					}
+
+					@include mq($min, $desktop) {
+						width: 100%;
+					}
+				}
+			}
+
+			.grey {
+				position: relative;
+				top: 0;
+				left: 0;
+				z-index: 2;
+				opacity: 0;
+				transition: opacity .5s;
+			}
+
+			.color {
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 1;				
+				transition: opacity .5s;
+			}
+		}
+	}
+
+	&__title {
+		color: $lmo-where-title;
+		@extend %gotham;
+		font-size: 2.7em;
+		font-weight: 700;
+		line-height: 1em;
+		
+		text-transform: uppercase;
+		margin-bottom: 60px;
+		display: inline-block;
+
+		@include mq($min, $tablet) {
+			font-size: 4em;
+			line-height: .8em;
+		}
+
+		span {
+			max-width: 65%;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		&:before, &:after {
+			width: 10%;
+			height: 1px;
+			opacity: 0.19;
+			background-color: $lmo-where-event;
+			display: inline-block;
+			vertical-align: middle;
+			content: '';
+
+			@include mq($min, $tablet) {
+				width: 152px;
+			}
+		}
+
+		&:before {
+			margin-right: 5px;
+			@include mq($min, $tablet) {
+				margin-right: 30px;
+			}
+		}
+
+		&:after {
+			margin-left: 5px;
+			@include mq($min, $tablet) {
+				margin-left: 30px;
+			}
+		}
+
+		&--wrap {
+			display: block;
+			text-align: center;
+			padding-top: 75px;
+		}
+	}
+
+	&__cta {
+		background: $orange;
+		padding: 180px 0;
+		color: white;
+		text-align: center;
+
+		&__title {
+			@extend %light;
+			font-size: 4.1em;
+			line-height: 1em;
+		}
+	}
+}
+
+// Author Landing
+.author-profile {
+	//@extend .container;
+	padding: 10px 0px 0;
+	
+	
+	@include mq($min, $desktop) {
+		padding-top: 20px;
+	}
+
+	&__container {
+		@extend .clearfix;
+		margin: 0 auto;
+		padding: 0 20px;
+		box-sizing: content-box;
+
+		@include mq($min, $desktop) {
+			max-width: 960px;
+		}
+
+		@include mq($min, $tablet) {
+			max-width: 800px;
+			//padding-right: 100px;
+		}
+
+	}
+
+	&__profile-wrap {
+		width: 100%;
+		float: left;
+		padding: 20px 30px 0 10px;
+		position: relative;
+		margin-left: 0;
+		
+
+		@include mq($min, $desktop) {
+			width: calc(100% - 260px);
+		}
+
+		@include mq($min, $tablet) {
+			margin-left: 15px;
+			width: calc(100% - 260px);
+			padding: 20px 30px 0 64px;
+		}
+	}
+
+	&__image {
+		float: right;
+		display: none;
+
+		@include mq($min, $tablet) {
+			margin-right: 80px;
+			display: block;
+
+		}
+
+		&--mobile {
+			float: right;
+			display: block;
+			width: 70px;
+			height: 70px;
+			position: absolute;
+			top: 0;
+			right: 0;
+
+			@include mq($min, $tablet) {
+				display: none;
+			}
+		}
+	}
+
+	&__name {
+		text-transform: uppercase;
+		color: $orange;
+		@extend %gotham;
+		font-weight: 700;
+		font-size: 1.7em;
+		margin-bottom: 5px;
+		width: calc(100% - 70px);
+
+		@include mq($min, $tablet) {
+			font-size: 2.1em;
+			width: 100%;
+		}
+	}
+
+	&__title {
+		text-transform: uppercase;
+		color: $lmo-where-event;
+		@extend %med;
+		font-size: 1.4em;
+		margin-bottom: 20px;
+		width: calc(100% - 70px);
+
+		@include mq($min, $tablet) {
+			margin-bottom: 15px;
+			font-size: 1.6em;
+			width: 100%;
+		}
+	}
+
+	&__desc {
+		@extend %light;
+		font-size: 1.4em;
+		line-height: 1.643em;
+		color: $lmo-where-event;
+	}
+}

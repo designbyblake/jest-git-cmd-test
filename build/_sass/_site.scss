@@ -1,0 +1,17 @@
+body {
+	font-size: 10px;
+}
+
+.clearfix:after{ content: ""; display: block; height: 0; clear: both;}
+
+.skip{position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; width:600px; color:#FFF;
+	&:focus, &:active{position:static; width:auto; height:auto; left:0px ; margin-right:10px;}
+}
+.noreveal{
+	&:focus, &:active{position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; width:600px; color:#FFF;}
+}
+.access{position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;}
+.forPrint{display: none;}
+button, input[type="submit"]{cursor:pointer;}
+
+.no-js .lazyload{display: none;} 

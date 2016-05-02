@@ -1,0 +1,192 @@
+.where-is-lmo {
+    background: $lmo-where-gray url(/assets/images/layout/bg_where_is_lmo.png) repeat-x 0 0;
+    padding-top: 70px;
+    padding-bottom: 25px;
+
+    @include mq($min, $desktop) {
+    	padding-top: 120px;
+    	padding-bottom: 75px;
+    }
+
+	&__title {
+		font-size: 4.5em;
+		color: $lmo-where-title;
+		margin: 64px 0 17px;
+		@extend %gotham;
+		font-weight: 700;
+		text-transform: uppercase;
+		text-align: center;
+
+		@include mq($max, $desktop) {
+			font-size: 3.6em;
+		}
+
+		@include mq($max, $tablet) {
+			font-size: 2.8em;
+		}
+
+		@include mq($max, $palm) {
+			font-size: 2.4em;
+		}
+	}
+
+	&__desc {
+		padding: 0 15px;
+		color: #737373;
+		font-size: 1.6em;
+		line-height: 1.938em;
+		margin-bottom: 36px;
+		text-align: center;
+
+		@include mq($max, $tablet) {
+			line-height: 1.6em;
+		}
+	}
+
+	&__calendar {
+		overflow: hidden;
+		margin-bottom: 95px;
+
+		@include mq($max, $tablet) {
+			margin-bottom: 0;
+		}
+
+		&__item {
+			width: 25%;
+			display: inline-block;
+			float: left;
+			padding: 38px 40px 999px;
+			margin-bottom: -999px;
+			border-right: solid 1px $lmo-where-border;
+			&--2{
+				width:50%;
+			}
+			&--3{
+				width:33%;
+			}
+			&:last-of-type {
+				border-right: none;
+			}
+
+			@include mq($max, $big_desktop) {
+				padding: 38px 30px 999px;
+			}
+
+			@include mq($max, $desktop) {
+				padding: 30px 20px 999px;
+			}
+
+			@include mq($max, $tablet) {
+				padding: 20px;
+				margin-bottom: 0;
+				border-right: none;
+				border-bottom: solid 1px $lmo-where-border;
+				display: block;
+				float: left;
+				width: 100%;
+
+				&:last-of-type {
+					border-bottom: none;
+				}
+			}
+		}
+	}
+
+	&__date {
+		font-size: 1.4em;
+	    line-height: 1.2em;
+	    @extend %gotham;
+	    font-weight: 700;
+	    text-transform: uppercase;
+	    margin-bottom: 10px;
+	    color: $orange;
+	    display: block;
+	}
+
+	&__event-name {
+		margin-bottom: 15px;
+		font-size: 1.6em;
+		line-height: 1.2em;
+		color: $lmo-where-event;
+		@extend %gotham;
+	    font-weight: 700; 
+	}
+
+	&__event-desc {
+	    color: $lmo-where-event; 
+	    font-size: 1.6em;
+	    line-height: 1.65em;
+	    margin-bottom: 36px;
+	    @extend %light;
+
+	    a {
+	    	color: $secondary;
+
+	    	&:hover {
+	    		text-decoration: underline;
+	    	}
+	    }
+	}
+
+}
+
+.home-cta {
+	background: $orange;
+	padding: 100px 0;
+	text-align: center;
+
+	@include mq($max, $tablet) {
+		padding: 70px 0;
+	}
+
+	@include mq($max, $palm) {
+		padding: 50px 0;
+	}
+
+	&__heading {
+		margin: 0px 0 30px;
+		font-size: 1.6em;
+		color: white;
+		text-transform: uppercase;
+		@extend %book;
+		letter-spacing: 1px;
+
+		@include mq($max, $tablet) {
+			font-size: 1.4em;
+		}
+	}
+
+	&__pitch {
+		margin: 0 0 40px;
+		font-size: 3.8em;
+		color: white;
+		@extend %med;
+
+		@include mq($max, $tablet) {
+			font-size: 2.8em;
+		}
+	}
+
+	&__button {
+		background: transparent;
+		border: solid 2px white;
+		padding: 11px 10px;
+		display: inline-block;
+		min-width: 104px;
+		color: white;
+		font-size: 1.2em;
+		text-transform: uppercase;
+		@extend %gotham;
+		font-weight: 400;
+		transition: background .5s, color .5s, border-color .5s;
+
+		&:hover {
+			transition: background .25s, color .25s, border-color .25s;
+			color: $orange;
+			border-color: $orange;
+			background-color: white;
+		}
+
+	}
+}
+

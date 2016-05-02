@@ -1,0 +1,180 @@
+body {
+	@extend %gotham;
+}
+
+.page-wrap {
+	position: relative;
+	transition: right .35s;
+	right: 0;
+	overflow-x: hidden;
+
+	.page-header {
+		transition: all .35s;
+		right: 0;
+		left: auto;
+	}
+
+	&.open {
+		right: 100%;
+		
+		@include mq($min, $desktop) {
+			right: 42.5%;
+		}
+		@include mq($min, $tablet) {
+			right: 50%;
+		}
+
+		.page-header {
+			right: 100%;
+
+			@include mq($min, $desktop) {
+				right: 42.5%;
+			}
+			@include mq($min, $tablet) {
+				right: 50%;
+			}
+		}
+	}
+
+
+}
+
+.visible-xs {
+	display: none;
+
+	@include mq($max,$palm) {
+		display: block;
+	}
+}
+
+// Overriding CSS changing the font.
+.mc h2.icon-header {
+	@extend %light;
+}
+
+// .filter-area {
+// 	float: left;
+// 	width: 33.3333%;
+// 	display: block;
+// 	text-align: center;
+// 	background: $base-dark; color: #fff;
+// 	font-size: 1.145em; letter-spacing: 0; line-height: 70px;
+// 	position: relative;
+// 	overflow: hidden;
+// 	padding:0; margin:0;
+// 	border: 1px solid lighten($base, 45%); border-width: 0 0 1px 1px;
+
+// 	.filter-item-container { 
+// 		position: relative; display: inline;
+
+// 		&:before, &:after {
+// 			content:"";
+// 			position: absolute;
+// 			width: 4px; height: 4px;
+// 			background: $base;
+// 			transition: all .25s ease-in-out;
+// 		}
+
+// 		&:before {
+// 			top: -1px; left: -13px;
+// 		}
+
+// 		&:after {
+// 			top: 11px; left: -13px;
+// 		}
+
+// 		span {
+// 			position: relative; display: inline;
+
+// 			&:before {
+// 				content:"";
+// 				position: absolute; top: 5px; left: -13px;
+// 				width: 4px; height: 4px;
+// 				background: $base;
+// 				transition: all .25s ease-in-out;
+// 			}
+// 		}
+// 	}
+
+	
+
+// 	&.active, &:hover, &:focus {
+// 		color: $base-darker; background:lighten($base, 45%);
+
+// 		.filter-item-container {
+// 			&:before {
+// 				top: 5px; left: -19px;
+// 			}
+// 			&:after {
+// 				top: 5px; left:-7px;
+// 			}
+// 		}
+// 		span {
+// 			&:before, &:after {
+// 				background: $secondary;
+// 			}
+// 		}
+// 	}
+
+// 	@include mq($max,$palm) {
+// 		width: 100%; border-left: 0;
+
+// 		&:before {
+// 			border-left: 0; border-top: 1px solid lighten($base, 45%);
+// 		}
+
+// 	}
+// }
+
+@import "_layout/_home.scss";
+@import "_layout/_blog.scss";
+@import "_layout/_work.scss";
+@import "_layout/_ppc.scss";
+@import "_layout/_section-landing.scss";
+@import "_layout/_form.scss";
+
+
+
+.main_f h2{
+	background:url(/assets/images/vectors/whiteLogo.svg) no-repeat 50% 50%; 
+}
+nav.main button.menuButton{
+	transition:none;
+}
+nav.main {
+	a.logo{
+		background:url(#{$vectors}orangeLogo.svg) no-repeat 50% 50%;
+		margin:0 !important;
+		transition:.25s none;
+		background-size: auto;
+		.leadershipPage &{
+			background: url(#{$vectors}brownLogo.svg) no-repeat 50% 50%;
+		}
+		.culture-page &{
+			background: url(#{$vectors}yellowLogo.svg) no-repeat 50% 50%;
+		}
+
+		.blogListingPage &, .blogDetailPage &{
+			background: url(#{$vectors}purpleLogo.svg) no-repeat 50% 50%;
+		}
+
+		.careersListingPage &, .careersDetailPage &, .contact-page &{
+			background: url(#{$vectors}blueLogo.svg) no-repeat 50% 50%;
+		}
+		&:focus, &:hover{
+			background:url(#{$vectors}darkGreyLogo.svg) no-repeat 50% 50% !important;
+		}
+	}
+
+	&.off_top{
+		a.logo{
+			background:url(#{$vectors}lightGreyLogo.svg) no-repeat 50% 50%;
+			margin:0 !important;
+			&:focus, &:hover{
+				background:url(#{$vectors}darkGreyLogo.svg) no-repeat 50% 50% !important;
+			}
+		}
+	}
+}
+
+

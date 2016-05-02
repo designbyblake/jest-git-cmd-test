@@ -1,0 +1,1362 @@
+.blog-list {
+    margin-bottom: 40px;
+    
+    //padding: 0;
+    @extend .clearfix;
+    @include mq($max, $palm) {
+        margin-top: 0px;
+    }
+
+/* Not sure what this pertains to. I think I wrote it thinking I needed a header. Might be invalid.
+     .page-head {
+        padding: 180px 70px 50px;
+
+        @include mq($max, $pre-tablet) {
+            padding-top: 60px;
+        }
+
+        @include mq($max, $palm) {
+            padding: 30px 6%;
+            font-size: 1em;
+        }
+
+        &__title {
+            margin-bottom: 40px;
+            font-size: 9.5em;
+            line-height: 0.895em;
+            text-align: center;
+            @extend %med;
+
+            @include mq($max, $pre-tablet) {
+                font-size: 5.6em;
+                margin-bottom: 20px;
+            }
+
+            @include mq($max, $palm) {
+                font-size: 3.6em;
+                margin-bottom: 20px;
+            }
+        }
+
+        p {
+            margin-bottom: 0;
+            font-size: 4.1em;
+            line-height: 1.098em;
+            @extend %light;
+            color: $base-darker;
+
+            @include mq($max, $pre-tablet) {
+                font-size: 2.4em;
+            }
+
+            @include mq($max, $palm) {
+                font-size: 1.6em;
+            }
+        }
+    } */
+
+    .filter-by {
+        padding: 0;
+    }
+
+    // TODO: Consolidate
+    &__wrap {
+        overflow: hidden;
+        @extend .clearfix;
+        display: block; 
+        width: 100%;
+        padding-bottom: 1px;
+        @include mq($max, $desktop) {
+            border-width: 0;
+        }
+
+        @include mq($max, $pre-tablet) {
+            display: block;
+            border-bottom: none;
+            padding: 0 0 1px;
+        }
+    }
+
+    &__post {
+        width: 100%;
+        //height: 965px;
+        display: inline-block;
+        vertical-align: middle; 
+        background: transparent;
+        position: relative;
+        transition: background .5s;
+        margin-bottom: 40px;
+        
+
+        @include mq($min, $palm) {
+            //@include gallery(6);
+            width: 48%;
+            float: left;
+
+            &:nth-child(2n+1) {
+                clear: both;
+                margin-right: -100%;
+                margin-left: 0;
+            }
+
+            &:nth-child(2n+2) {
+                clear: none;
+                margin-right: -100%;
+                margin-left: 52%;
+            }
+            
+        }
+
+        @include mq($min, $post-palm, $desktop){
+            &:nth-child(even){
+                border-left:none;
+            }
+            &:last-child{
+                //border-bottom:1px solid red;
+            }
+        }
+        @include mq($min, $desktop) {
+            width: 30%;
+            
+            
+            &:nth-child(3n+1) {
+                clear: both;
+                margin-right: -100%;
+                margin-left: 0;
+            }
+
+            &:nth-child(3n+2) {
+                clear: none;
+                margin-right: -100%;
+                margin-left: 35%;
+            }
+
+            &:nth-child(3n+3) {
+                clear: none;
+                margin-right: -100%;
+                margin-left: 70%;
+            }
+        }
+        
+        
+        
+
+        &__contact {
+            display: block;
+            height: 100%;
+            position: relative;
+            padding-bottom: 50px;
+
+
+            &:before {
+                content:"";
+                position: absolute; 
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 0;
+                background: $secondary;
+                transition: all .25s; 
+            }
+            
+            @include mq($min, $palm){
+                min-height: 400px; //how can we do equal heights instead? truncate title?
+                max-height:400px;
+            }
+            @include mq($min, $palm) {
+                //padding-bottom: 106px;
+                 min-height: 500px; //how can we do equal heights instead? truncate title?
+                max-height:500px;
+            }
+
+            &:hover, &:focus {
+                &:before {
+                    height: 10px; 
+                }
+
+                .spotlight {
+                    opacity: 0;
+                }
+            }
+        }
+
+        &__image {
+            width: 100%;
+            height: auto;
+            margin-bottom: 55px;
+            vertical-align: top;
+
+            @include mq($max, $pre-tablet) {
+                margin-top: 20px;
+                margin-bottom: 40px;
+            }
+            
+            @include mq($max, $palm) {
+                margin-top: 0px;
+                margin-bottom: 25px;
+            }
+        }
+
+        &__date {
+            color: $base;
+            font-size: 1.4em;
+            @extend %med;
+            line-height: 2em;
+            text-transform: uppercase;
+            color: $secondary;
+        }
+
+        &__title {
+            font-size: 2.2em;
+            @extend %med;
+            line-height: 1.138em;
+            margin-bottom: 38px;
+            color: black;
+        }
+
+        &__summary {
+            color: $base;
+            font-size: 1.7em;
+            @extend %light;
+            line-height: 1.529em;
+
+            @include mq($max, $palm) {
+                padding: 0 6%;
+            }
+        }
+    }
+
+    .view-article {
+        background: $blog-active;
+        width: 100%;
+        height: 86px;
+        text-align: center;
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 3.5%;
+        margin-left: -3.5%;
+        margin-right: -3.5%;
+        cursor: pointer;
+        z-index: 1;
+        opacity: 0;
+        transition: opacity .25s;
+
+        &:before {
+            display: inline-block;
+            vertical-align: middle;
+            content: '';
+            height: 100%;
+        }
+
+        p {
+            width: 98%;
+            display: inline-block;
+            vertical-align: middle;
+            color: white;
+            font-size: 1.7em;
+            text-transform: uppercase;
+            @extend %med;
+
+            @include mq($max, $desktop) {
+                font-size: 1.4em;
+            }
+        }
+
+        @include mq($max, $pre-tablet) {
+            display: none;
+        }
+    }
+}
+/* Blog Details */
+ .author {
+    margin-top: 0;
+    background: $base-darker;
+    height: 400px;
+    padding-top: 155px;
+
+    &__photo {
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        text-align: center;
+        padding-left: 0;
+        
+        img {
+            max-width: 130px;
+            // height: 130px;
+            border-radius: 100%;
+            margin: 0 auto 40px;
+            box-shadow: inset 0 0 109px rgba(0, 0, 0, 0.19);
+        }
+
+        &__press {
+            width: 72px;
+            height: 72px;
+            overflow: hidden;
+            text-align: center;
+            padding-left: 0;
+            background: white;
+            border-radius: 100%;
+            padding-top: 5px;
+            margin: 0 auto 40px;
+
+            img {
+                border-radius: 0;
+                box-shadow: none;
+                margin-bottom: 0;
+                max-width: 84%;
+            }
+        }
+    }
+
+    &__desc {
+        color: white;
+        text-align: center;
+        font-size: 1.7em;
+        @extend %light;
+
+        p {
+            margin-bottom: 9px;
+        }
+    }
+
+    &__name {
+        text-transform: uppercase;
+        @extend %med;
+    }
+}
+.blog-detail {
+    overflow: hidden;
+    position: relative;
+    border-bottom: solid 1px $blog-border;
+    margin-bottom: 40px;
+    padding: 0;
+
+    @include mq($min, $pre-bigdesktop) {
+        border-left: solid 1px $blog-border;
+        border-right: solid 1px $blog-border;
+    }
+    $sidebarSize:260px;
+    &__sidebar {
+        float: left;
+        height: 100%;
+        width: $sidebarSize;
+        position: relative;
+        z-index: 2;
+        margin-top: 0;
+        margin-bottom: -999em;
+        padding-bottom: 999em;
+        background: #f4f4f4; // TODO: Variable
+
+        @include mq($max, $big_desktop) {
+            display: none;
+        }
+
+
+
+        &__menu {
+            margin-top: 0px;
+            padding-top: 0;
+
+            &__item {
+                a {
+                    font-size: 1.1em;
+                    color: $base-dark;
+                    @extend %med;
+                    line-height: 1em;
+                    text-transform: uppercase;
+                    padding: 27px 10px 23px 22%;
+                    transition: background .5s, color .5s;
+                    border-top: solid 1px $blog-border-alt;
+                    display: block;
+
+                    &:hover, &:focus {
+                        color: $dk-gray-active;
+                        transition: background .25s, color .25s;
+                        background: $base-lighter;
+                    }
+                }
+
+                &:first-child a {
+                    border-top: 0;
+                }
+            }
+
+            &__label {
+                color: #2d2d2d;
+                @extend %light;
+                font-size: 1.7em;
+                line-height: 1em;
+                text-transform: uppercase;
+                padding: 44px 20px 40px 22%;
+            }
+        }
+    }
+
+    &__content {
+        padding: 0 0 50px 0%;
+        width: calc(100% - #{$sidebarSize});
+       // margin-left: -17%;
+        float: left;
+        position: relative;
+        z-index: 1;
+        
+
+        @include mq($max, $big_desktop) {
+            width:100%;
+            padding-left: 0;
+            margin-left: 0;
+            border-left: 1px solid $blog-border-alt;
+            border-right: 1px solid $blog-border-alt;
+        }
+
+        &__wrap {
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+
+        .comments {
+            padding: 0 6%;
+        }
+    }
+
+    &__head {
+        position: relative;
+        z-index: 1;
+        float: left;
+        width: calc(100% - #{$sidebarSize});
+        margin: 0 0% 0px 0;
+        padding: 0 0% 50px 0;
+        
+        @include mq($max, $big_desktop) {
+            width:100%;
+            padding-right: 0;
+            margin-right: 0;
+            border-left: 1px solid $blog-border-alt;
+            border-right: 1px solid $blog-border-alt;
+        }
+
+        @include mq($max, $tablet) {
+            padding-top: 0;
+            font-size: 1em;
+
+        }
+
+        &__banner {
+            height: 400px;
+            background-size: cover;
+            background-position: center top;
+            background-repeat: no-repeat;
+            position: relative;
+            background: $orange;
+
+            @include mq($max, $desktop) {
+                height: 327px;
+            }
+
+            
+        }
+
+        &__overlay {
+            height: 100%;
+            width: 100%;
+            background: rgba(black, .4);
+            position: absolute;
+            top: 0;
+            z-index: 2;
+
+            &--clear {
+                display: none;
+            }
+        }
+
+        &__title {
+            position: absolute;
+            z-index: 3;
+            padding: 0 20% 0 44px;
+            top: 50%;
+            transform: translateY(-50%); 
+
+            @include mq($max, $big_desktop) {
+                padding-left: 6%;
+                padding-right: 6%;
+            }
+
+            @include mq($max, $desktop) {
+                //padding-top: 114px;
+            }
+
+            @include mq($max, $tablet) {
+                padding: 0 6%;
+                vertical-align: middle;
+                height: 100%;
+                width: 99%;
+
+                &:before {
+                    height: 100%;
+                    display: inline-block;
+                    content: '';
+                    vertical-align: middle;
+                }
+            }
+
+            @include mq($max, $tablet) {
+                
+            }            
+
+            
+
+            .blog-sub {
+                font-size: 4.1em;
+                @extend %light;
+                line-height: 1.098em;
+                 margin-top: 56px;
+
+                @include mq($max, $desktop) {
+                    
+                }
+
+                @include mq($max, $tablet) {
+                    
+                }
+
+                @include mq($max, $palm_sm) {
+
+                }
+            }
+        }
+    }
+}
+.blog-title {
+    color: white;
+    @extend %med;
+    //font-size:7.5em;
+    font-size: 6.0em;
+    line-height: 1em;
+    text-transform: uppercase;
+   text-shadow:1px 1px 5px rgba(0, 0, 0, 0.28);
+    font-weight: 700;
+    @include mq($max, $desktop) {
+        font-size: 4.8em;
+        line-height: 1em;
+    }
+
+    @include mq($max, $tablet) {
+        font-size: 4.2em;
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 auto;
+        width: 90%
+    }
+
+    @include mq($max, $palm_sm) {
+        font-size: 3em; 
+    }
+}
+/* /blog-detail */
+
+.mobile-controls {
+    display: none;
+    height: 156px;
+    background: white;
+    position: relative;
+
+    @include mq($max, $big_desktop) {
+        display: block;
+    }
+
+    @include mq($max, $tablet) {
+
+    }
+
+    &__wrap {
+        position: absolute;
+        bottom: 0;
+        border-top: solid 1px $blog-border-alt;
+        border-left: solid 1px $blog-border-alt;
+        border-right: solid 1px $blog-border-alt;
+        height: 77px;
+        width: 100%;
+    }
+
+    &__btn {
+        width: 50%;
+        display: inline-block;
+        height: 100%;
+        float: left;
+        position: relative;
+
+        &:first-of-type {
+            border-right: solid 1px $blog-border-alt;
+        }
+
+        a, button {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: none;
+            padding: 0;
+            text-align: center;
+            display: block;
+            color: $mobile-nav;
+            @extend %light;
+            font-size: 1.7em;
+            line-height: 1.688em;
+            text-transform: uppercase;
+            &:hover, &:focus{
+                background:#1B1B1B;
+                color:#FFF;
+            }
+            &:before {
+                content: '';
+                height: 100%;
+                display: inline-block;
+                vertical-align: middle;
+            }
+
+            @include mq($max, $palm) {
+                font-size: 1.4em;
+                line-height: 1em;
+
+                span {
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+            }
+
+            &.author-cat {
+                transition: background .25s, color .25s;
+                &.active {
+                    background: $dk-gray-active;
+                    color: white;
+                    &:after {
+                        border-width: 30px;
+                        margin-left: -30px;
+
+                        @include mq($max, $palm_sm) {
+                            border-width: 20px;
+                            margin-left: -20px;                            
+                        }
+                    }
+                }
+
+                &:after {
+                    top: 99%;
+                    left: 50%;
+                    border: solid transparent;
+                    content: '';
+                    height: 0;
+                    width: 0;
+                    position: absolute;
+                    pointer-events: none;
+                    border-color: rgba($dk-gray-active, 0);
+                    border-top-color: $dk-gray-active;
+                    border-width: 0px;
+                    margin-left: 0px;
+                    z-index: 7;
+                    transition: border-width .25s, margin-left .25s;
+                }
+            }
+        }
+
+        .icon-angle-left {
+            width: 28px;
+            height: 28px;
+            padding-top: 5px;
+            border: solid 1px gray;
+            border-radius: 100%;
+            display: inline-block;
+            line-height: 16px;
+            margin-right: 15px;
+            position: relative;
+            top:-2px;
+            vertical-align: middle;
+
+            &:before {
+
+            }
+        }
+    }
+
+    &__category-menu {
+
+        display: none;
+        position: absolute;
+        width: 100%;
+        height: auto;
+        top: 156px;
+        z-index: 6;
+        //overflow: hidden;
+        @extend .clearfix;
+        @include mq($min,$big_desktop){
+            display: none !important;
+
+        }
+        .icon-close {
+            border: none;
+            background: none;
+            font-size: 5em;
+            position: absolute;
+            right: 35px;
+            top: 25px;
+        }
+
+        .menu {
+            &__item, &__label {
+                border-bottom: solid 1px $base-lighter;
+                font-size: 1.7em;
+                @extend %light;
+                
+            }
+
+            &__label {
+                color: $base-darker;
+                text-transform: uppercase;
+                padding: 0 55px 25px;
+            }
+
+            &__item {
+                a {
+                    padding:20px 55px 25px; 
+                    display: block;
+                    color: gray;
+                    &:hover, &:focus{
+                        background:#DADADA;
+                        color:#000;
+                    }
+                }
+            }
+        }
+
+        .author {
+            width: 100%;
+            height: 255px;
+            display: table;
+            padding-top:0;
+            background:none;
+
+            &__photo {
+                width: 215px;
+                height: 160px;
+                display: table-cell;
+                vertical-align: middle;
+                padding-left: 55px;
+                text-align: center;
+
+                img {
+                    border-radius: 100%;
+                }
+
+                &__press {
+                    width: 130px;
+                    height: 130px;
+                    text-align: center;
+                    background: white;
+                    border-radius: 100%;
+                    padding-top: 10px;
+
+                    img {
+                        border-radius: 0;
+                    }
+                }
+            }
+
+            &__desc {
+                padding-left: 30px;
+                display: table-cell;
+                vertical-align: middle;
+                padding-right: 55px;
+            }
+
+            &__name {
+                color: $base-darker;
+                font-size: 1.7em;
+                @extend %med;
+                margin-bottom: 14px;
+                text-transform: uppercase;
+            }
+
+            &__title {
+                color: $base;
+                font-size: 1.7em;
+                @extend %light;
+            }
+        }
+    }
+
+    // Will probably change based on design
+    &__scroll-wrap {
+        //overflow: scroll;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        padding-bottom: 50px;
+
+        &.active {
+
+        }
+
+        .container {
+            background: $author-cat-bg;
+            position: relative;
+        }
+    }
+}
+
+
+.blog-info {
+    border-bottom: 1px solid $blog-border;
+    width: 100%;
+    height: 80px;
+    padding-left: 20px;
+    position: relative;
+    z-index: 3;
+
+    @include mq($max, $desktop) {
+        padding-left: 0;
+    }
+
+    @include mq($max, $palm_sm) {
+        height: auto;
+    }
+
+    /*
+    >div, >div>div {
+        display: table-cell;
+    }
+
+    >div>div {
+        padding: 10px;
+    }
+    */
+    &__meta {
+        display: inline-table;
+        height: 100%;
+        vertical-align: top;
+        width: 45%;
+
+        @include mq($max, $big_desktop) {
+            width: 45%;
+        }
+
+        @include mq($max, $desktop) {
+            width: 60%;
+            padding-left: 0;
+        }
+
+        @include mq($max, $tablet) {
+            width: 80%;
+            padding-left: 0;
+        }
+
+        @include mq($max, $palm_sm) {
+            width: 100%;
+            display: block;
+        }
+           
+        .meta {
+
+            &__author, &__category {
+                display: table-cell;
+                vertical-align: top;
+                padding-right: 5%;
+                padding-top: 25px;
+                width: 220px;
+
+                @include mq($max, $big_desktop + 40) {
+                    width: 200px;
+                }
+
+                @include mq($max, $tablet) {
+                    width: 50%;
+                }
+
+                @include mq($max, $palm_sm) {
+                    display: block;
+                    width: 100%;
+                    height: 72px;
+                    padding: 20px 5% 0 5%;
+                    float: none;
+                    border-bottom: solid 1px $blog-border;
+                }
+
+                .blog-author, .blog-cats-label {
+                    text-transform: uppercase;
+                    color: $secondary;
+                    @extend %med;
+                    font-size: 1.1em;
+                    margin-bottom: 5px;
+                    display: block;
+                }
+
+                .blog-date, .blog-cats {
+                    display: block;
+                    color: $base-dark;
+                    @extend %comp;
+                    font-size: 1.6em;
+                    font-weight: 300;
+                    
+                    span:after {
+                        content:" //";
+                    }
+                }
+
+                .blog-cats {
+                    span:last-child:after {
+                        content:"";
+                    }
+                }
+            }
+
+            &__author {
+                padding-left: 30px;
+                padding-right: 0;
+            }
+
+            &__category {
+                padding-right: 6%;
+            }
+        }
+    }
+
+    &__controls {
+        width: 51%;
+        height: 100%;
+        border-left: solid 1px $blog-border;
+        float: right;
+
+        @include mq($max, $big_desktop) {
+            width: 54%;
+        }
+        
+        @include mq($max, $desktop) {
+            display: block;
+            float: none;
+            width: 100%;
+            border-left: none;
+            border-bottom: solid 1px $blog-border;
+        }
+
+        @include mq($max, $palm_sm) {
+            height: 75px;
+            border-bottom: none;
+        }
+
+        .mobile-left {
+            height: 100%;
+            display: inline-block;
+
+            @include mq($max, $desktop) {
+                float: left;
+            }
+
+            @include mq($max, 456px) {
+                display: none;
+            }
+        }
+
+        .mobile-right {
+            height: 100%;
+            display: inline-block;
+
+            @include mq($max, $desktop) {
+                border-left: solid 1px $blog-border;
+                float: right;
+            }
+        }
+    }
+
+    &__comments, &__social, &__all {
+        .icon-facebook, .icon-twitter, .icon-comments, .icon-grid {
+            transition: color .5s;
+
+            &:hover, &:focus {
+                color: $blog-active;
+                transition: color .25s;
+            }
+        }
+    }
+    
+    &__comments, &__social, &__paging, &__all {
+        display: inline-table;
+        height: 100%;
+        width: 99px;
+        vertical-align: top;
+        border-right: solid 1px $blog-border;
+        float: left;
+
+        .comments-wrap, .social-wrap, .paging-wrap, .all-wrap {
+            display: table-cell;
+            vertical-align: middle;
+            width: 100%;
+            position: relative;
+            text-align: center;
+        }
+
+        .comments-wrap {
+            a {
+                padding: 0 10px;
+                font-size: 1.2em;
+                color: $base; // TODO: Variable
+                transition: color .5s;
+
+                &:hover, &:focus {
+                    color: $blog-active;
+                    transition: color .25s;
+                }
+            }
+        }
+
+
+        .social-wrap, .all-wrap {
+            a {
+                padding: 0 10px;
+                font-size: 2.2em;
+                color: $base;
+            }
+        }
+
+        span {
+            width: 100%;
+            
+            &.comments-number {
+                color: #2d2d2d;
+                @extend %med;
+                font-size: 1.4em;
+                vertical-align: middle;
+            }
+
+            &.icon-comments {
+                margin-left: 10px;
+                font-size: 2.2em;
+                color: $base;
+                vertical-align: middle;
+            }
+        }
+    }
+
+    &__comments {
+        @include mq($max, $palm_sm + 49) {
+            width: 70px;
+        }
+    }
+
+    &__social {
+        width: 124px;
+
+        @include mq($max, $palm_sm + 49) {
+            width: 100px;
+        }
+    }
+
+    &__paging {
+        width: 82px;
+
+        .button-wrap {
+            text-align: center;
+        }
+    }
+
+    &__options {
+        display: inline-table;
+        height: 100%;
+        vertical-align: top;
+        .detail-all,.detail-nav {
+            width: 12%;
+        }
+        .comments {
+            width:26%
+        }
+        .social {
+            width:50%
+        }
+
+    }
+
+    &__all {
+        border-right: none;
+        .icon-grid {
+            font-size: 2.2em;
+        }
+
+        @include mq($max, $palm_sm) {
+            width: 80px;
+        }
+    }
+
+    .social .shareUl li {
+        display:inline-block;
+    }
+    
+    .the_button {
+        display:inline-block;
+        line-height: 16px;
+        width: 28px;
+        height: 28px;
+        padding-top: 5px;
+        box-sizing:border-box;
+        transform: rotate(0deg);
+        border: 1px solid $base;
+        border-radius: 100%;
+        background: none;
+        text-align: center;
+        color: $base;
+        &:hover, &:focus{
+            border-color: $blog-active;
+            color: $blog-active;
+        }
+    }
+    .icon-angle-right:before {
+        font-size: 16px;
+        display: inline-block;
+        height: 16px;
+        margin-top: 0;
+        margin-right: 0;
+        position: relative;
+    }
+    .previous.icon-angle-right:before {
+        @include rotate(180);
+        left:-1px;
+        top:1px;
+    }
+}
+
+.pagination {
+    text-align: center;
+    padding-bottom: 20px;
+    //border-bottom: solid 1px $blog-border;
+}
+
+
+/* Created based on a web comp without a .PSD. Further conversation with Jerry made me think that this may be 
+repurposed for the home page, with the Related Work section replacing the blog. */
+
+.blog-recent {
+    @extend .clearfix;
+
+    .home-page & {
+        margin-bottom: 50px;
+    }
+
+    &__content {
+        @extend .clearfix;
+    }
+
+    &__title {
+        font-size: 3.6em;
+        @extend %gotham;
+        text-align: center;
+        text-transform: uppercase;
+        margin-bottom: 60px;
+        color: $base-dark;
+
+        .home-page & {
+            font-size: 4em;
+            margin: 64px 20% 30px;
+            text-align: center;
+            position: relative;
+
+            @include mq($max, $desktop) {
+                font-size: 3.2em;
+            }
+
+            @include mq($max, $tablet) {
+                margin: 64px 0 30px;
+            }
+
+            @include mq($max, $palm) {
+                font-size: 2.6em;
+            }
+            
+            &:before {
+                width: 100%;
+                height: 1px;
+                background: #ededee;
+                content: '';
+                display: block;
+                vertical-align: middle;
+                position: absolute;
+                top: 50%;
+                left: 0;
+                z-index: 1;
+            }
+
+            span {
+                padding: 0 20px;
+                display: inline-block;
+                background: white;
+                position: relative;
+                z-index: 2;
+
+                @include mq($max, $tablet) {
+                    padding: 0 15px;
+                }
+
+                @include mq($max, $palm) {
+                    padding: 0 10px;
+                }
+            }
+        }
+    }
+
+    &__story {
+        @include span(4);
+        padding: 0 1.5%;
+
+
+        &:first-of-type {
+            padding: 0 3% 0 0;
+        }
+
+        &:last-of-type {
+            padding: 0 0 0 3%;
+            @include span(4 last);
+        }
+
+        @include mq($max, $palm) {
+            padding: 0;
+            width: 100%;
+            float: none;
+            margin-bottom: 40px;
+
+            &:first-of-type, &:last-of-type {
+                width: 100%;
+                padding: 0;
+                float: none;
+            }
+        }
+
+        &__link {
+            display: block;
+            padding-bottom: 50px;
+            position: relative;
+            border-bottom: 1px solid $base-lighter;
+            
+            @include mq($min, $palm) {
+                min-height:350px;
+                border: 0;
+            }
+
+            @include mq($min, $tablet) {
+                min-height:480px;
+                border: 0;
+            }
+
+
+            &:after {
+                content:"";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 0;
+                background: $secondary;
+                 transition: all .25s;
+            }
+
+            &:hover, &:focus {
+                &:after {
+                    height: 10px;
+                }
+                .blog-recent__story__thumbnail .spotlight {
+                    opacity: 0;
+                }
+            }
+        }
+
+        &__date {
+            @extend %book;
+            color: $secondary;
+            font-size: 1.4em;
+            text-transform: uppercase;
+            line-height: 1em;
+            margin-bottom: 13px;
+            display: block;
+        }
+
+        &__title {
+            @extend %book;
+            font-size: 1.7em;
+            line-height: 1.529em;
+            color: black;
+
+            a {
+                color: black;                
+            }
+        }
+
+        &__thumbnail {
+            position: relative;
+            float: none;
+            overflow: hidden;
+            width: auto;
+            height: auto;
+            border: 0;
+            margin-bottom: 36px;
+
+            .img, img {
+                width: 100%;
+                height: auto;
+                position: relative;
+                z-index: 1;
+            }
+
+            .spotlight {
+                width: 100%;
+                height: 100%!important;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 2;
+                transition: opacity .5s;
+            }
+        }
+
+        
+    }
+
+    &__contact {
+        display: block;
+    }
+
+    &__button {
+        margin: 20px 0 40px;
+        padding: 14px 10px;
+        color: #434343;
+        font-size: 1.7em;
+        border: 2px solid #BCBBBA;
+        background: transparent;
+        text-transform: uppercase;
+        display: block;
+        min-width: 170px;
+        text-align: center;
+        float: right;
+        @extend %light;
+        box-sizing: border-box;
+        transition: background .5s, color .5s, border-color .5s;
+
+        &:hover, &:focus {
+            transition: background .25s, color .25s, border-color .25s;
+            border-color: $purple_hover;
+            background: $purple_hover;
+            color: white;           
+        }
+
+        @include mq($max, $palm) {
+            display: block;
+            float: none;
+            width: 100%;
+        }
+
+        .home-page & {
+            letter-spacing: 1px;
+
+            &:hover, &:focus {
+                border-color: $orange;
+                background: $orange;
+                color: white;
+            }
+        }
+    }
+}
